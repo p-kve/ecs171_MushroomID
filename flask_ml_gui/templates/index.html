@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Machine Learning Classification Project</title>
+    </head>
+    <body>
+        <h1>Machine Learning Classification Project</h1>
+        <form method="POST" action="/predict">
+            <label for="model">model</label>
+            <select name = "model" id = "model">
+                <option value="sgd">Regression with Stochiastic Gradient Descent</option>
+                <option value="dnn">Deep Neural Network</option>
+                <option value="gb">Gradient Boost</option>
+                <option value="xgb">XGBoost</option>
+            </select> <br>
+            <label for="stem-width">stem-width:</label>
+            <input type="text" name="stem-width" id="stem-width"> <br>
+            <label for="stem-height">stem-height:</label>
+            <input type="text" name="stem-height" id="stem-height"> <br>
+            <label for="cap-diameter">cap-diameter:</label>
+            <input type="text" name="cap-diameter" id="cap-diameter"> <br>
+            
+            {% for category, options in select_options.items() %}
+            <label for="{{ category }}">{{ category }}:</label>
+            <select name="{{ category }}" id="{{category}}">
+                {% for option in options %}
+                <option value="{{ options.index(option) }}">{{ option }}</option>
+                {% endfor %}
+            </select> <br>
+            {% endfor %} 
+            <!--<label for="stem-color">stem-color:</label>
+            <select name="stem-color" id="stem-color">
+                {% for option in select_options.stem_color %}
+                <option value="{{ select_options.stem_color.index(option) }}">{{ option }}</option>
+                {% endfor %}
+            </select> <br>
+            <label for="stem-surface">stem-surface:</label>
+            <select name="stem-surface" id="stem-surface">
+                {% for option in select_options.stem_surface %}
+                <option value="{{ select_options.stem_surface.index(option) }}">{{ option }}</option>
+                {% endfor %}
+            </select> <br>
+            <label for="gill-attatchment">gill-attatchment:</label>
+            <select name="gill-attatchment" id="gill-attatchment">
+                {% for option in select_options.gill_attatchment %}
+                <option value="{{ select_options.gill_attatchment.index(option) }}">{{ option }}</option>
+                {% endfor %}
+            </select> <br>
+            <label for="gill-spacing">gill-spacing:</label>
+            <select name="gill-spacing" id="gill-spacing">
+                {% for option in select_options.gill_spacing %}
+                <option value="{{ select_options.gill_spacing.index(option) }}">{{ option }}</option>
+                {% endfor %}
+            </select> <br>
+            <label for="stem-height">stem-height:</label>
+            <input type="text" name="stem-height" id="stem-height" required> <br>
+            <label for="cap-surface">cap-surface:</label>
+            <select name="cap-surface" id="stem-color">
+                {% for option in select_options.cap_surface %}
+                <option value="{{ select_options.cap_surface.index(option) }}">{{ option }}</option>
+                {% endfor %}
+            </select> <br>
+            <label for="gill-color">gill-color:</label>
+            <select name="gill-color" id="gill-color">
+                {% for option in select_options.gill_color %}
+                <option value="{{ select_options.gill_color.index(option) }}">{{ option }}</option>
+                {% endfor %}
+            </select> <br>
+            <label for="stem-root">stem-root:</label>
+            <select name="stem-root" id="stem-root">
+                {% for option in select_options.stem_root %}
+                <option value="{{ select_options.stem_root.index(option) }}">{{ option }}</option>
+                {% endfor %}
+            </select> <br>
+            <label for="has-ring">has-ring:</label>
+            <select name="has-ring" id="has-ring">
+                {% for option in select_options.has_ring %}
+                <option value="{{ select_options.has_ring.index(option) }}">{{ option }}</option>
+                {% endfor %}
+            </select><br> -->
+            <button type="submit">Predict</button>
+        </form>
+    </body>
+    </html>
